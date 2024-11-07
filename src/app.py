@@ -49,11 +49,11 @@ def sitemap():
     return send_from_directory(static_file_dir, 'index.html')
 
 # Serve admin root
-# @app.route('/admin', methods=['GET'])
-# def serve_admin_root():
-#     response = send_from_directory(static_file_dir, 'admin/index.html')
-#     response.cache_control.max_age = 0  # Avoid cache memory
-#     return response
+@app.route('/admin', methods=['GET'])
+def serve_admin_root():
+    response = send_from_directory(static_file_dir, 'admin/index.html')
+    response.cache_control.max_age = 0  # Avoid cache memory
+    return response
 
 # Serve admin files
 @app.route('/admin/<path:path>', methods=['GET'])
